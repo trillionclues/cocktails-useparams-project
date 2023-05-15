@@ -12,7 +12,10 @@ const Footer = () => {
         <p className='capitalize md:uppercase text-center'>
           Made with &#10084; by
           <span className='px-1 font-bold'>
-            <Link to='https://github.com/trillionclues' target='_blank'>
+            <Link
+              to='https://github.com/trillionclues/cocktails-useparams-project'
+              target='_blank'
+            >
               trillionclues
             </Link>
           </span>
