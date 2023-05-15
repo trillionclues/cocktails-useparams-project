@@ -1,11 +1,55 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
+import CockTails from '../components/CockTails';
+import Loading from '../components/Loading';
+import LoadMore from '../components/LoadMore';
+import SearchDrinks from '../components/SearchDrinks';
+import { useGlobalContext } from '../context';
 
 const Home = () => {
+  const { cockTails, isLoading } = useGlobalContext();
+  // eslint-disable-next-line no-unused-vars
+  const [maxCockTails, setMaxCockTails] = useState(4);
+
+  if (!cockTails || isLoading) {
+    return (
+      <section className='absolute w-full bg-gray-100 pt-[100px] h-full'>
+        <div className='h-full flex flex-col justify-center items-center'>
+          <Loading />
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <div className=' absolute w-full h-full flex justify-center items-center bg-gray-100'>
-      <h1>CockTails</h1>
-    </div>
+    <section className='absolute w-full bg-gray-100'>
+      <div
+        className='min-h-screen flex flex-col justify-center items-center bg-cover bg-center
+        bg-no-repeat pb-[80px] pt-[80px]'
+        style={{
+          backgroundImage: `url('https://img.freepik.com/free-photo/plates-with-chocolate-sticks-dark-background_23-2148340440.jpg')`,
+        }}
+      >
+        <SearchDrinks />
+
+        <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
+          {cockTails.slice(0, maxCockTails).map((cockTail) => {
+            console.log(cockTail);
+
+            return (
+              <div key={cockTail.idDrink} className='pt-10'>
+                <CockTails {...cockTail} />
+              </div>
+            );
+          })}
+        </div>
+        <LoadMore
+          cockTails={cockTails}
+          setMaxCockTails={setMaxCockTails}
+          maxCockTails={maxCockTails}
+        />
+      </div>
+    </section>
   );
 };
 

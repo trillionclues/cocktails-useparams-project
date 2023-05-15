@@ -2,7 +2,13 @@
 import React from 'react';
 
 const Error = () => {
-  return <div>Error</div>;
+  return (
+    <section className='absolute w-full bg-gray-100 pt-[100px] h-full'>
+      <div className='h-full flex flex-col justify-center items-center'>
+        <h1>Error...</h1>
+      </div>
+    </section>
+  );
 };
 
 export default Error;

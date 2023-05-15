@@ -5,6 +5,7 @@ import SharedLayout from './components/SharedLayout';
 import Home from './pages/Home';
 import About from './pages/About';
 import Error from './components/Error';
+import CockTailInfo from './components/CockTailInfo';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path='/' element={<SharedLayout />}>
           <Route index element={<Home />} />
           <Route path='about' element={<About />} />
+          <Route path='drinks/:productId' element={<CockTailInfo />} />
           <Route path='*' element={<Error />} />
         </Route>
       </Routes>

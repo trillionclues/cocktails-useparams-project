@@ -6,12 +6,10 @@ const Footer = () => {
   return (
     <footer className='relative'>
       <div
-        className='absolute mx-auto flex justify-center items-center
-      w-full bg-white shadow-lg py-3 pr-10 z-10 bottom-0 shadow-lg
-
-      '
+        className='fixed mx-auto flex justify-center items-center
+      w-full bg-white shadow-lg py-3 md:pr-10 pr-0 z-10 bottom-0 shadow-lg'
       >
-        <p className='uppercase'>
+        <p className='capitalize md:uppercase text-center'>
           Made with &#10084; by
           <span className='px-1 font-bold'>
             <Link to='https://github.com/trillionclues' target='_blank'>

@@ -8,7 +8,7 @@ const AppContext = createContext();
 const url = 'https://www.thecocktaildb.com/api/json/v1/1/search.php?s=';
 
 export const AppProvider = ({ children }) => {
-  const [cockTail, setCockTail] = useState({});
+  const [cockTails, setCockTails] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
@@ -21,7 +21,7 @@ export const AppProvider = ({ children }) => {
       const response = await axios.get(`${url}${searchTerm}`);
       const data = await response.data;
       const { drinks } = data;
-      setCockTail(drinks);
+      setCockTails(drinks);
       setIsLoading(false);
     } catch (error) {
       console.log(error);
@@ -42,10 +42,12 @@ export const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        cockTail,
-        setCockTail,
+        cockTails,
+        setCockTails,
         searchTerm,
         setSearchTerm,
+        searchCockTails,
+        isLoading,
       }}
     >
       {children}
