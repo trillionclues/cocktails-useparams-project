@@ -7,8 +7,7 @@ import SearchDrinks from '../components/SearchDrinks';
 import { useGlobalContext } from '../context';
 
 const Home = () => {
-  const { cockTails, isLoading } = useGlobalContext();
-  // eslint-disable-next-line no-unused-vars
+  const { cockTails, isLoading, filteredCockTails } = useGlobalContext();
   const [maxCockTails, setMaxCockTails] = useState(4);
 
   if (!cockTails || isLoading) {
@@ -25,7 +24,7 @@ const Home = () => {
     <section className='absolute w-full bg-gray-100'>
       <div
         className='min-h-screen flex flex-col justify-center items-center bg-cover bg-center
-        bg-no-repeat pb-[80px] pt-[80px]'
+        bg-no-repeat pb-[80px] pt-[100px]'
         style={{
           backgroundImage: `url('https://img.freepik.com/free-photo/plates-with-chocolate-sticks-dark-background_23-2148340440.jpg')`,
         }}
@@ -33,7 +32,7 @@ const Home = () => {
         <SearchDrinks />
 
         <div className='grid grid-cols-1 md:grid-cols-4 gap-6'>
-          {cockTails.slice(0, maxCockTails).map((cockTail) => {
+          {filteredCockTails.slice(0, maxCockTails).map((cockTail) => {
             console.log(cockTail);
 
             return (
@@ -43,8 +42,9 @@ const Home = () => {
             );
           })}
         </div>
+
         <LoadMore
-          cockTails={cockTails}
+          cockTails={filteredCockTails}
           setMaxCockTails={setMaxCockTails}
           maxCockTails={maxCockTails}
         />

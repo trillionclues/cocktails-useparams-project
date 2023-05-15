@@ -12,8 +12,6 @@ export const AppProvider = ({ children }) => {
   const [searchTerm, setSearchTerm] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  // console.log(cockTail)
-
   // fetch cockTails
   const fetchCockTail = async () => {
     setIsLoading(true);
@@ -30,14 +28,23 @@ export const AppProvider = ({ children }) => {
   };
 
   // search for cockTails
-  const searchCockTails = (searchTerm) => {
-    setSearchTerm(searchTerm);
-    fetchCockTail();
+  const searchCockTails = (searchDrinks) => {
+    setSearchTerm(searchDrinks);
   };
 
   useEffect(() => {
     fetchCockTail();
-  }, [searchTerm]);
+  }, []);
+
+  // filter based on search term
+  const filteredCockTails = cockTails.filter((cockTail) => {
+    const { strDrink, strGlass, strCategory } = cockTail;
+    return (
+      strDrink.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      strGlass.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      strCategory.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+  });
 
   return (
     <AppContext.Provider
@@ -48,6 +55,7 @@ export const AppProvider = ({ children }) => {
         setSearchTerm,
         searchCockTails,
         isLoading,
+        filteredCockTails,
       }}
     >
       {children}
