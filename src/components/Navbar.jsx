@@ -13,16 +13,25 @@ const Header = () => {
           className='
         container mx-auto flex flex-wrap justify-around items-center'
         >
-          <Link to='/' className='font-bold text-xl'>
-            &#x1F468;&#x200D;&#x1F373; The{' '}
-            <span className='uppercase'> CockTailGUY</span>
+          <Link
+            to='/'
+            className='font-bold text-xl flex flex-row items-center uppercase'
+          >
+            <img
+              src='/food-favicon.jpg'
+              className='
+            w-8 h-8 rounded-full mr-2
+            '
+              alt=''
+            />{' '}
+            The <span className='uppercase tracking-widest'> CockTailGUY</span>
           </Link>
-          <div className='flex flex-row gap-4 md:gap-10 justify-between items-center uppercase'>
+          <div className='flex flex-row gap-4 md:gap-10 justify-between items-center uppercase font-bold tracking-widest'>
             <NavLink
               to='/'
               style={({ isActive }) => {
                 return {
-                  color: isActive ? 'red' : 'black',
+                  color: isActive ? '#476a2e' : 'black',
                 };
               }}
             >
@@ -32,7 +41,7 @@ const Header = () => {
               to='/about'
               style={({ isActive }) => {
                 return {
-                  color: isActive ? 'red' : 'black',
+                  color: isActive ? '#476a2e' : 'black',
                 };
               }}
             >

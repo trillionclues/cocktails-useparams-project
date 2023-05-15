@@ -5,14 +5,21 @@ const About = () => {
   return (
     <div className='absolute w-full h-full flex flex-col justify-center items-center bg-gray-100 md:px-[300px] px-0 tracking-wide'>
       <div className='h-full flex flex-col justify-center items-center'>
-        <h1 className='font-bold text-5xl mb-10'>About Us</h1>
-        <p className='px-[30px] text-center'>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse dicta
-          tempora quisquam minima quia blanditiis at eveniet distinctio animi
-          possimus fugit corporis, accusantium provident sint eos amet modi
-          aspernatur alias delectus vitae aliquam accusamus, enim molestiae?
-          Iure est possimus, officia alias similique vitae eius! Culpa quisquam
-          corporis sunt enim dolore.
+        <h1 className='font-bold text-5xl mb-10'>
+          &#x1F468;&#x200D;&#x1F373; About Us
+        </h1>
+        <p className='px-[30px] text-start'>
+          Welcome to myFoodByHida, your ultimate destination for delicious and
+          nutritious recipes! We are passionate about food and dedicated to
+          helping you create wonderful culinary experiences in your own kitchen.
+          <p className='pt-2'>
+            {' '}
+            At myFoodByHida, we believe that food is not just sustenance but a
+            delightful journey of flavors and creativity. Our mission is to
+            inspire and empower home cooks of all skill levels to explore their
+            culinary talents, discover new recipes, and enjoy the pleasures of
+            cooking.
+          </p>
         </p>
       </div>
     </div>
