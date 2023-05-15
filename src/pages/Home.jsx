@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CockTails from '../components/CockTails';
 import Loading from '../components/Loading';
 import LoadMore from '../components/LoadMore';
+import NoData from '../components/NoData';
 import SearchDrinks from '../components/SearchDrinks';
 import { useGlobalContext } from '../context';
 
@@ -42,6 +43,9 @@ const Home = () => {
             );
           })}
         </div>
+
+        {/* if !drink search */}
+        {filteredCockTails.length === 0 && <NoData />}
 
         <LoadMore
           cockTails={filteredCockTails}
